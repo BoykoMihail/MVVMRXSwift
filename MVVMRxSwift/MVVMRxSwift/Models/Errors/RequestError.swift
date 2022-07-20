@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+enum RequestError: Error {
+    case decodeError
+    case invalidURL
+    case noResponseError
+    case unexpectedStatusCode
+    case unknownError
+    case thisIsLastPage
+}

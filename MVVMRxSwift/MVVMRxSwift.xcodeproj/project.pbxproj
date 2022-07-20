@@ -11,12 +11,28 @@
 		C449D1E60A49E1A030B63222 /* Pods_MVVMRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3983199A56AD9D02E475A38 /* Pods_MVVMRxSwift.framework */; };
 		C785665D2887423600B95C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665C2887423600B95C3B /* AppDelegate.swift */; };
 		C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665E2887423600B95C3B /* SceneDelegate.swift */; };
-		C78566612887423600B95C3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566602887423600B95C3B /* ViewController.swift */; };
+		C78566612887423600B95C3B /* СryptocurrenciesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566602887423600B95C3B /* СryptocurrenciesController.swift */; };
 		C78566662887423700B95C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C78566652887423700B95C3B /* Assets.xcassets */; };
 		C78566692887423700B95C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C78566672887423700B95C3B /* LaunchScreen.storyboard */; };
 		C78566742887423700B95C3B /* MVVMRxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566732887423700B95C3B /* MVVMRxSwiftTests.swift */; };
 		C785667E2887423700B95C3B /* MVVMRxSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785667D2887423700B95C3B /* MVVMRxSwiftUITests.swift */; };
 		C78566802887423700B95C3B /* MVVMRxSwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785667F2887423700B95C3B /* MVVMRxSwiftUITestsLaunchTests.swift */; };
+		C7856690288745F000B95C3B /* GlobalAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785668F288745F000B95C3B /* GlobalAssembly.swift */; };
+		C7856693288746DE00B95C3B /* DependencyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7856692288746DE00B95C3B /* DependencyAssembly.swift */; };
+		C78566962887472E00B95C3B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566952887472E00B95C3B /* BaseViewController.swift */; };
+		C785669A2887482B00B95C3B /* IСryptocurrenciesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566992887482B00B95C3B /* IСryptocurrenciesController.swift */; };
+		C78566A0288748A500B95C3B /* СryptocurrenciesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785669F288748A500B95C3B /* СryptocurrenciesCell.swift */; };
+		C78566A2288748C700B95C3B /* СryptocurrenciesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566A1288748C700B95C3B /* СryptocurrenciesCellViewModel.swift */; };
+		C78566A728874A7900B95C3B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566A628874A7900B95C3B /* Endpoint.swift */; };
+		C78566A928874A9500B95C3B /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566A828874A9500B95C3B /* Method.swift */; };
+		C78566AB28874AA900B95C3B /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566AA28874AA900B95C3B /* HTTPClient.swift */; };
+		C78566AD28874ABD00B95C3B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566AC28874ABD00B95C3B /* URLSessionProtocol.swift */; };
+		C78566B128874AF200B95C3B /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566B028874AF200B95C3B /* RequestError.swift */; };
+		C78566B52887513B00B95C3B /* СryptocurrenciesEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566B42887513B00B95C3B /* СryptocurrenciesEndpoints.swift */; };
+		C78566B8288762B800B95C3B /* AssetsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566B7288762B800B95C3B /* AssetsResponse.swift */; };
+		C78566BA2887674900B95C3B /* CurrenciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566B92887674900B95C3B /* CurrenciesService.swift */; };
+		C78566BD2887677800B95C3B /* ICurrenciesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566BC2887677800B95C3B /* ICurrenciesService.swift */; };
+		C78566C1288767B700B95C3B /* URLSession+URLSessionProtocol .swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566C0288767B700B95C3B /* URLSession+URLSessionProtocol .swift */; };
 		F7A6CBA386DEAD48678B8741 /* Pods_MVVMRxSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20F19C777C75C9FC20CB4AD /* Pods_MVVMRxSwiftTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +65,7 @@
 		C78566592887423600B95C3B /* MVVMRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785665C2887423600B95C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C785665E2887423600B95C3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C78566602887423600B95C3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C78566602887423600B95C3B /* СryptocurrenciesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesController.swift"; sourceTree = "<group>"; };
 		C78566652887423700B95C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C78566682887423700B95C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C785666A2887423700B95C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +74,22 @@
 		C78566792887423700B95C3B /* MVVMRxSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMRxSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785667D2887423700B95C3B /* MVVMRxSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMRxSwiftUITests.swift; sourceTree = "<group>"; };
 		C785667F2887423700B95C3B /* MVVMRxSwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMRxSwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C785668F288745F000B95C3B /* GlobalAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAssembly.swift; sourceTree = "<group>"; };
+		C7856692288746DE00B95C3B /* DependencyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyAssembly.swift; sourceTree = "<group>"; };
+		C78566952887472E00B95C3B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C78566992887482B00B95C3B /* IСryptocurrenciesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IСryptocurrenciesController.swift"; sourceTree = "<group>"; };
+		C785669F288748A500B95C3B /* СryptocurrenciesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesCell.swift"; sourceTree = "<group>"; };
+		C78566A1288748C700B95C3B /* СryptocurrenciesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesCellViewModel.swift"; sourceTree = "<group>"; };
+		C78566A628874A7900B95C3B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C78566A828874A9500B95C3B /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		C78566AA28874AA900B95C3B /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		C78566AC28874ABD00B95C3B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		C78566B028874AF200B95C3B /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		C78566B42887513B00B95C3B /* СryptocurrenciesEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesEndpoints.swift"; sourceTree = "<group>"; };
+		C78566B7288762B800B95C3B /* AssetsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsResponse.swift; sourceTree = "<group>"; };
+		C78566B92887674900B95C3B /* CurrenciesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesService.swift; sourceTree = "<group>"; };
+		C78566BC2887677800B95C3B /* ICurrenciesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICurrenciesService.swift; sourceTree = "<group>"; };
+		C78566C0288767B700B95C3B /* URLSession+URLSessionProtocol .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+URLSessionProtocol .swift"; sourceTree = "<group>"; };
 		E3983199A56AD9D02E475A38 /* Pods_MVVMRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,7 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				C785668C2887457800B95C3B /* Resources */,
-				C78566602887423600B95C3B /* ViewController.swift */,
+				C78566BE288767A500B95C3B /* Helpers */,
+				C78566912887462300B95C3B /* Dependency */,
+				C78566A328874A5500B95C3B /* Services */,
+				C785668D288745D400B95C3B /* PresentationLayer */,
+				C78566AE28874ADB00B95C3B /* Models */,
 			);
 			path = MVVMRxSwift;
 			sourceTree = "<group>";
@@ -162,6 +198,170 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C785668D288745D400B95C3B /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C785669B2887486300B95C3B /* 1_Сryptocurrencies */,
+				C78566942887471F00B95C3B /* Base */,
+				C785668E288745E600B95C3B /* GlobalAssembly */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		C785668E288745E600B95C3B /* GlobalAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				C785668F288745F000B95C3B /* GlobalAssembly.swift */,
+			);
+			path = GlobalAssembly;
+			sourceTree = "<group>";
+		};
+		C78566912887462300B95C3B /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				C7856692288746DE00B95C3B /* DependencyAssembly.swift */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		C78566942887471F00B95C3B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C78566952887472E00B95C3B /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C78566972887481000B95C3B /* СryptocurrenciesController */ = {
+			isa = PBXGroup;
+			children = (
+				C78566982887482100B95C3B /* Protocol */,
+				C78566602887423600B95C3B /* СryptocurrenciesController.swift */,
+			);
+			path = "СryptocurrenciesController";
+			sourceTree = "<group>";
+		};
+		C78566982887482100B95C3B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C78566992887482B00B95C3B /* IСryptocurrenciesController.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C785669B2887486300B95C3B /* 1_Сryptocurrencies */ = {
+			isa = PBXGroup;
+			children = (
+				C785669C2887488200B95C3B /* Views */,
+				C78566972887481000B95C3B /* СryptocurrenciesController */,
+			);
+			path = "1_Сryptocurrencies";
+			sourceTree = "<group>";
+		};
+		C785669C2887488200B95C3B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C785669D2887488D00B95C3B /* СryptocurrenciesCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C785669D2887488D00B95C3B /* СryptocurrenciesCell */ = {
+			isa = PBXGroup;
+			children = (
+				C785669E2887489600B95C3B /* ViewModel */,
+				C785669F288748A500B95C3B /* СryptocurrenciesCell.swift */,
+			);
+			path = "СryptocurrenciesCell";
+			sourceTree = "<group>";
+		};
+		C785669E2887489600B95C3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C78566A1288748C700B95C3B /* СryptocurrenciesCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C78566A328874A5500B95C3B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C78566BB2887677000B95C3B /* Protocols */,
+				C78566A428874A5C00B95C3B /* NetworkLayer */,
+				C78566B92887674900B95C3B /* CurrenciesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C78566A428874A5C00B95C3B /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C78566A528874A6600B95C3B /* Protocols */,
+				C78566B42887513B00B95C3B /* СryptocurrenciesEndpoints.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		C78566A528874A6600B95C3B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C78566A628874A7900B95C3B /* Endpoint.swift */,
+				C78566A828874A9500B95C3B /* Method.swift */,
+				C78566AA28874AA900B95C3B /* HTTPClient.swift */,
+				C78566AC28874ABD00B95C3B /* URLSessionProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C78566AE28874ADB00B95C3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C78566B62887628800B95C3B /* Api */,
+				C78566AF28874AE900B95C3B /* Errors */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C78566AF28874AE900B95C3B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C78566B028874AF200B95C3B /* RequestError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		C78566B62887628800B95C3B /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				C78566B7288762B800B95C3B /* AssetsResponse.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		C78566BB2887677000B95C3B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C78566BC2887677800B95C3B /* ICurrenciesService.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C78566BE288767A500B95C3B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C78566BF288767AD00B95C3B /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C78566BF288767AD00B95C3B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C78566C0288767B700B95C3B /* URLSession+URLSessionProtocol .swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DE046D358EA5F095DE5A09F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +384,7 @@
 				C78566562887423600B95C3B /* Frameworks */,
 				C78566572887423600B95C3B /* Resources */,
 				076B46AC495DDA1AECE6162E /* [CP] Embed Pods Frameworks */,
+				C78566B328874B8000B95C3B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -381,6 +582,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MVVMRxSwift-MVVMRxSwiftUITests/Pods-MVVMRxSwift-MVVMRxSwiftUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C78566B328874B8000B95C3B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		F744F8C53E426C7834CBA386 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,9 +629,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C78566612887423600B95C3B /* ViewController.swift in Sources */,
+				C78566B128874AF200B95C3B /* RequestError.swift in Sources */,
+				C78566B8288762B800B95C3B /* AssetsResponse.swift in Sources */,
+				C78566A2288748C700B95C3B /* СryptocurrenciesCellViewModel.swift in Sources */,
+				C78566C1288767B700B95C3B /* URLSession+URLSessionProtocol .swift in Sources */,
+				C785669A2887482B00B95C3B /* IСryptocurrenciesController.swift in Sources */,
+				C78566BD2887677800B95C3B /* ICurrenciesService.swift in Sources */,
+				C78566AB28874AA900B95C3B /* HTTPClient.swift in Sources */,
+				C7856690288745F000B95C3B /* GlobalAssembly.swift in Sources */,
+				C78566612887423600B95C3B /* СryptocurrenciesController.swift in Sources */,
+				C78566A728874A7900B95C3B /* Endpoint.swift in Sources */,
+				C78566B52887513B00B95C3B /* СryptocurrenciesEndpoints.swift in Sources */,
+				C7856693288746DE00B95C3B /* DependencyAssembly.swift in Sources */,
 				C785665D2887423600B95C3B /* AppDelegate.swift in Sources */,
+				C78566BA2887674900B95C3B /* CurrenciesService.swift in Sources */,
+				C78566AD28874ABD00B95C3B /* URLSessionProtocol.swift in Sources */,
 				C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */,
+				C78566962887472E00B95C3B /* BaseViewController.swift in Sources */,
+				C78566A0288748A500B95C3B /* СryptocurrenciesCell.swift in Sources */,
+				C78566A928874A9500B95C3B /* Method.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,7 +818,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MVVMRxSwift/Info.plist;
+				INFOPLIST_FILE = MVVMRxSwift/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -593,7 +828,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.Flickr.MVVMRxSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -610,7 +845,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MVVMRxSwift/Info.plist;
+				INFOPLIST_FILE = MVVMRxSwift/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -620,7 +855,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.Flickr.MVVMRxSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -639,7 +874,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.Flickr.MVVMRxSwiftTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -659,7 +894,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.Flickr.MVVMRxSwiftTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -677,7 +912,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.Flickr.MVVMRxSwiftUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -695,7 +930,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.Flickr.MVVMRxSwiftUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

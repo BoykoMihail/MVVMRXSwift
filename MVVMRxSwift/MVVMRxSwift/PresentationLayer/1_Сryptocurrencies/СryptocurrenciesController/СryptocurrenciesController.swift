@@ -12,25 +12,30 @@ private extension String {
 }
 
 final class СryptocurrenciesController: BaseViewController, IСryptocurrenciesController {
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ImageCell.self, forCellReuseIdentifier: .tableViewCellIdentifier)
+        tableView.register(СryptocurrenciesCell.self, forCellReuseIdentifier: .tableViewCellIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         return tableView
     }()
 
-    var presenter: IGalleryPresenter?
+//    var viewModel: IGalleryViewModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = presenter?.title
+//        title = presenter?.title
         
+//        Task {
+//            await presenter?.viewDidLoad()
+//        }
         Task {
-            await presenter?.viewDidLoad()
+            let count = try await CurrenciesService().fetchPhotos(page: 1).data
+            count?.forEach({ ddd in
+                debugPrint("BBoyko = ", ddd)
+//            https://assets.coincap.io/assets/icons/leo@2x.png
+            })
         }
     }
     // MARK: - Setting Views
@@ -38,6 +43,7 @@ final class СryptocurrenciesController: BaseViewController, IСryptocurrenciesC
     override func addSubViews() {
         super.addSubViews()
         view.addSubview(tableView)
+        updateData()
     }
 
     // MARK: - Setting Constraints
@@ -68,43 +74,59 @@ final class СryptocurrenciesController: BaseViewController, IСryptocurrenciesC
 
 extension СryptocurrenciesController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.didTapCell(indexPath: indexPath.row)
+//        presenter?.didTapCell(indexPath: indexPath.row)
     }
 }
 
 extension СryptocurrenciesController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let presenter = presenter else {
-            return .zero
-        }
-
-        return presenter.getCellHeight(index: indexPath.row,
-                                       viewWidth: view.bounds.width)
+        40
+//        guard let presenter = presenter else {
+//            return .zero
+//        }
+//
+//        return presenter.getCellHeight(index: indexPath.row,
+//                                       viewWidth: view.bounds.width)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let presenter = presenter else {
-            return .zero
-        }
-
-        return presenter.countOfPhotos
+        2
+//        guard let presenter = presenter else {
+//            return .zero
+//        }
+//
+//        return presenter.countOfPhotos
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView
-            .dequeueReusableCell(withIdentifier: .tableViewCellIdentifier,
-                                 for: indexPath) as? ImageCell,
-              let presenter = presenter else {
-            return UITableViewCell()
-        }
-
-        let viewModel = presenter.getCellViewModelFor(index: indexPath.row)
-        cell.configure(with: viewModel)
-
+//        guard let cell = tableView
+//            .dequeueReusableCell(withIdentifier: .tableViewCellIdentifier,
+//                                 for: indexPath) as? СryptocurrenciesCell else {
+//            return UITableViewCell()
+//        }
+        let cell = UITableViewCell()
+//        let viewModel = presenter.getCellViewModelFor(index: indexPath.row)
+//        cell.configure(with: viewModel)
+        cell.backgroundColor = .cyan
         cell.accessibilityIdentifier = String.tableViewCellIdentifier + "_\(indexPath.row)"
 
         return cell
+//        guard let cell = tableView
+//            .dequeueReusableCell(withIdentifier: .tableViewCellIdentifier,
+//                                 for: indexPath) as? СryptocurrenciesCell,
+//              let presenter = presenter else {
+//            return UITableViewCell()
+//        }
+//
+//        let viewModel = presenter.getCellViewModelFor(index: indexPath.row)
+//        cell.configure(with: viewModel)
+//
+//        cell.accessibilityIdentifier = String.tableViewCellIdentifier + "_\(indexPath.row)"
+//
+//        return cell
     }
 }
-
-
