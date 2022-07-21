@@ -9,4 +9,8 @@ import UIKit
 
 final class DependencyAssembly {
     lazy var navigationController = UINavigationController()
+
+    lazy var currenciesService: ICurrenciesService = {
+        CurrenciesService()
+    }()
 }
