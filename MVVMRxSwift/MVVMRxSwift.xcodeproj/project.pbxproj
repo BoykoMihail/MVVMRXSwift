@@ -28,6 +28,7 @@
 		C73C4BED2889448500C55990 /* LineChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BEC2889448500C55990 /* LineChartViewModel.swift */; };
 		C73C4BEF288944B400C55990 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BEE288944B400C55990 /* LineView.swift */; };
 		C73C4BF128894B9900C55990 /* TimeSeriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BF028894B9900C55990 /* TimeSeriesResponse.swift */; };
+		C7548D972889649400233488 /* Array+isNullOrEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7548D962889649400233488 /* Array+isNullOrEmpty.swift */; };
 		C785665D2887423600B95C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665C2887423600B95C3B /* AppDelegate.swift */; };
 		C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665E2887423600B95C3B /* SceneDelegate.swift */; };
 		C78566612887423600B95C3B /* СryptocurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566602887423600B95C3B /* СryptocurrenciesViewController.swift */; };
@@ -100,6 +101,7 @@
 		C73C4BEC2889448500C55990 /* LineChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewModel.swift; sourceTree = "<group>"; };
 		C73C4BEE288944B400C55990 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		C73C4BF028894B9900C55990 /* TimeSeriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesResponse.swift; sourceTree = "<group>"; };
+		C7548D962889649400233488 /* Array+isNullOrEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+isNullOrEmpty.swift"; sourceTree = "<group>"; };
 		C78566592887423600B95C3B /* MVVMRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785665C2887423600B95C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C785665E2887423600B95C3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 				34A610EF28883EB5002035EE /* UIColor+Hex.swift */,
 				34A610ED28883E25002035EE /*  UIColor+Constants.swift */,
 				34A610F72888601F002035EE /* UIFont+Constants.swift */,
+				C7548D962889649400233488 /* Array+isNullOrEmpty.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				C73C4BE82889444500C55990 /* ChartLabel.swift in Sources */,
 				C78566B52887513B00B95C3B /* СryptocurrenciesEndpoints.swift in Sources */,
 				C7856693288746DE00B95C3B /* DependencyAssembly.swift in Sources */,
+				C7548D972889649400233488 /* Array+isNullOrEmpty.swift in Sources */,
 				C785665D2887423600B95C3B /* AppDelegate.swift in Sources */,
 				C78566BA2887674900B95C3B /* CurrenciesService.swift in Sources */,
 				34A610F628884CDD002035EE /* СryptocurrenciesViewModel.swift in Sources */,
@@ -971,8 +975,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49G77KD6LG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MVVMRxSwift/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -987,6 +993,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -999,8 +1006,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 49G77KD6LG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MVVMRxSwift/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1015,6 +1024,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.SPB.Boyko.MVVMRxSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

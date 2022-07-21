@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TimeSeriesResponse: Codable {
+public struct TimeSeriesResponse: Codable {
     let id: String?
     let sourceAttributions: [SourceAttribution]?
     let timeSeries: [TimeSeries]?
@@ -26,7 +26,7 @@ struct TimeSeriesResponse: Codable {
         case sourceAttribution = "source_attribution"
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: DataCodingKeys.self)
 
         let data = try values.nestedContainer(keyedBy: ValuesDataCodingKeys.self, forKey: .data)
@@ -39,7 +39,7 @@ struct TimeSeriesResponse: Codable {
                     return nil
                 }
                 
-                return TimeSeries(data: "\($0[0])", price: "\($0[1])")
+                return TimeSeries(date: "\($0[0])", price: "\($0[1])")
             }
         } else {
             timeSeries = nil
@@ -51,12 +51,12 @@ struct TimeSeriesResponse: Codable {
     }
 }
 
-struct TimeSeries: Codable {
-    let data: String
+public struct TimeSeries: Codable {
+    let date: String
     let price: String
 }
 
-struct SourceAttribution: Codable {
+public struct SourceAttribution: Codable {
     let name: String
     let url: String
 }

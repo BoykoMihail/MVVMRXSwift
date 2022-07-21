@@ -7,28 +7,36 @@
 
 import SwiftUI
 
-public struct LineChartViewModel {
+@MainActor public class LineChartViewModel: ObservableObject {
+    // MARK: - Private Property
+    private let service: ICurrenciesService
+    private let name: String?
+
     // MARK: - Property
-    public var prices: [Double]
-    public var dates: [String]?
-    public var hours: [String]?
+    @Published private var timeSeriesResponse: TimeSeriesResponse?
     
     // MARK: - Style
-    public var labelColor: Color
-    public var indicatorPointColor: Color
-    public var showingIndicatorLineColor: Color
-    public var flatTrendLineColor: Color
-    public var uptrendLineColor: Color
-    public var downtrendLineColor: Color
+    @Published public var labelColor: Color
+    @Published public var indicatorPointColor: Color
+    @Published public var showingIndicatorLineColor: Color
+    @Published public var flatTrendLineColor: Color
+    @Published public var uptrendLineColor: Color
+    @Published public var downtrendLineColor: Color
     
     // MARK: - Interactions
     public var dragGesture = false
     
+    public var prices: [Double]? {
+        timeSeriesResponse?.timeSeries?.compactMap { Double($0.price) }
+    }
+    
+    public var dates: [String]? {
+        timeSeriesResponse?.timeSeries?.compactMap { $0.date }
+    }
+    
     public init(
-        prices: [Double],
-        dates: [String]? = nil,
-        hours: [String]? = nil,
-        
+        service: ICurrenciesService,
+        name: String?,
         labelColor: Color = .blue,
         indicatorPointColor: Color = .blue,
         showingIndicatorLineColor: Color = .blue,
@@ -38,10 +46,8 @@ public struct LineChartViewModel {
         
         dragGesture: Bool = false
     ) {
-        self.prices = prices
-        self.dates = dates
-        self.hours = hours
-        
+        self.service = service
+        self.name = name
         self.labelColor = labelColor
         self.indicatorPointColor = indicatorPointColor
         self.showingIndicatorLineColor = showingIndicatorLineColor
@@ -53,8 +59,10 @@ public struct LineChartViewModel {
         
         Task {
 
-            let data = try await CurrenciesService().fetchTimeSeries(by: "bitcoin")
-            debugPrint("BBoyko data = ", data.timeSeries?.count ?? "not")
+            if let name = name {
+                timeSeriesResponse = try await service.fetchTimeSeries(by: name)
+                debugPrint("BBoyko data = ", timeSeriesResponse?.timeSeries?.count ?? "not")
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct LineView: View {
-    public var lineChartViewModel: LineChartViewModel
+    @StateObject  public var lineChartViewModel: LineChartViewModel
     
     @Binding var showingIndicators: Bool
     @Binding var indexPosition: Int
@@ -17,9 +17,11 @@ public struct LineView: View {
     
     public var body: some View {
         ZStack {
-            GeometryReader { proxy in
-                LinePath(data: lineChartViewModel.prices, width: proxy.size.width, height: proxy.size.height, pathPoints: $pathPoints)
-                    .stroke(colorLine(), lineWidth: 2)
+            if let prices = lineChartViewModel.prices {
+                GeometryReader { proxy in
+                    LinePath(data: prices, width: proxy.size.width, height: proxy.size.height, pathPoints: $pathPoints)
+                        .stroke(colorLine(), lineWidth: 2)
+                }
             }
             
             if showingIndicators {
@@ -51,7 +53,7 @@ public struct LineView: View {
     }
     
     public struct IndicatorPoint: View {
-        public var lineChartViewModel: LineChartViewModel
+        @StateObject public var lineChartViewModel: LineChartViewModel
         
         public var body: some View {
             Circle()
@@ -63,11 +65,15 @@ public struct LineView: View {
     public func colorLine() -> Color {
         var color = lineChartViewModel.uptrendLineColor
         
+        guard let prices = lineChartViewModel.prices else {
+            return color
+        }
+        
         if showingIndicators {
             color = lineChartViewModel.showingIndicatorLineColor
-        } else if lineChartViewModel.prices.first! > lineChartViewModel.prices.last! {
+        } else if prices.first! > prices.last! {
             color = lineChartViewModel.downtrendLineColor
-        } else if lineChartViewModel.prices.first! == lineChartViewModel.prices.last! {
+        } else if prices.first! == prices.last! {
             color = lineChartViewModel.flatTrendLineColor
         }
         

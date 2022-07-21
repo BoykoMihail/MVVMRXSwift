@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-protocol ICurrenciesService {
+public protocol ICurrenciesService {
     func fetchAssets(page: Int) async throws -> AssetsResponse
     func fetchTimeSeries(by name: String) async throws -> TimeSeriesResponse
 }

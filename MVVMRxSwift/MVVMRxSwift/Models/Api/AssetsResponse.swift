@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrencieData: Codable {
+public struct CurrencieData: Codable {
     let id: String?
     let symbol: String?
     let priceUsd: Double?
@@ -28,7 +28,7 @@ struct CurrencieData: Codable {
         case priceUsd = "price_usd"
     }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)
         symbol = try values.decodeIfPresent(String.self, forKey: .symbol)
@@ -41,10 +41,10 @@ struct CurrencieData: Codable {
     }
 }
 
-struct AssetsResponse: Codable {
+public struct AssetsResponse: Codable {
     let data: [CurrencieData]?
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         data = try values.decodeIfPresent([CurrencieData].self, forKey: .data)
     }

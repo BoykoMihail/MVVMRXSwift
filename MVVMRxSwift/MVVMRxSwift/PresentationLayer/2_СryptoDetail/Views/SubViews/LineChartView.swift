@@ -8,17 +8,13 @@
 import SwiftUI
 
 public struct LineChartView: View {
-    public var lineChartViewModel: LineChartViewModel
+    @ObservedObject var lineChartViewModel: LineChartViewModel
     
     @State var showingIndicators = false
     @State var indexPosition = Int()
     
-    public init(lineChartViewModel: LineChartViewModel) {
-        self.lineChartViewModel = lineChartViewModel
-    }
-    
     public var body: some View {
-        if lineChartViewModel.prices.isEmpty {} else {
+        if lineChartViewModel.prices.isNullOrEmpty {} else {
             VStack {
                 if lineChartViewModel.dragGesture {
                     ChartLabel(lineChartViewModel: lineChartViewModel, indexPosition: $indexPosition)
@@ -34,3 +30,22 @@ public struct LineChartView: View {
         }
     }
 }
+
+//public extension LineChartView {
+//    class LineChartViewModel: ObservableObject {
+//        @Published private(set) var timeSeriesResponse: TimeSeriesResponse?
+//        
+//        private let service: ICurrenciesService
+//        
+//        init(service: ICurrenciesService) {
+//            self.service = service
+//        }
+//        
+//        func loadCountries(name: String) {
+//            Task {
+//                timeSeriesResponse = try await service.fetchTimeSeries(by: name)
+//            }
+//            
+//        }
+//    }
+//}
