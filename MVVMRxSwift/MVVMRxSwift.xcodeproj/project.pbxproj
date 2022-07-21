@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34A610EE28883E25002035EE /*  UIColor+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A610ED28883E25002035EE /*  UIColor+Constants.swift */; };
+		34A610F028883EB5002035EE /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A610EF28883EB5002035EE /* UIColor+Hex.swift */; };
+		34A610F4288844A8002035EE /* IСryptocurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A610F3288844A8002035EE /* IСryptocurrenciesViewModel.swift */; };
+		34A610F628884CDD002035EE /* СryptocurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A610F528884CDD002035EE /* СryptocurrenciesViewModel.swift */; };
+		34A610F82888601F002035EE /* UIFont+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A610F72888601F002035EE /* UIFont+Constants.swift */; };
+		34A6110128887595002035EE /* CryptoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A6110028887595002035EE /* CryptoDetailViewController.swift */; };
+		34A6110528887F2C002035EE /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A6110428887F2C002035EE /* DetailView.swift */; };
 		94939B89681B0BDF2F99DC4F /* Pods_MVVMRxSwift_MVVMRxSwiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8907075F9DE60E55997BA03D /* Pods_MVVMRxSwift_MVVMRxSwiftUITests.framework */; };
 		C449D1E60A49E1A030B63222 /* Pods_MVVMRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3983199A56AD9D02E475A38 /* Pods_MVVMRxSwift.framework */; };
 		C785665D2887423600B95C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665C2887423600B95C3B /* AppDelegate.swift */; };
 		C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665E2887423600B95C3B /* SceneDelegate.swift */; };
-		C78566612887423600B95C3B /* СryptocurrenciesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566602887423600B95C3B /* СryptocurrenciesController.swift */; };
+		C78566612887423600B95C3B /* СryptocurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566602887423600B95C3B /* СryptocurrenciesViewController.swift */; };
 		C78566662887423700B95C3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C78566652887423700B95C3B /* Assets.xcassets */; };
 		C78566692887423700B95C3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C78566672887423700B95C3B /* LaunchScreen.storyboard */; };
 		C78566742887423700B95C3B /* MVVMRxSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566732887423700B95C3B /* MVVMRxSwiftTests.swift */; };
@@ -54,6 +61,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34A610ED28883E25002035EE /*  UIColor+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " UIColor+Constants.swift"; sourceTree = "<group>"; };
+		34A610EF28883EB5002035EE /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		34A610F3288844A8002035EE /* IСryptocurrenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IСryptocurrenciesViewModel.swift"; sourceTree = "<group>"; };
+		34A610F528884CDD002035EE /* СryptocurrenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesViewModel.swift"; sourceTree = "<group>"; };
+		34A610F72888601F002035EE /* UIFont+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Constants.swift"; sourceTree = "<group>"; };
+		34A6110028887595002035EE /* CryptoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailViewController.swift; sourceTree = "<group>"; };
+		34A6110428887F2C002035EE /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3EB945E7A88D8C242854467E /* Pods-MVVMRxSwift-MVVMRxSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRxSwift-MVVMRxSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-MVVMRxSwift-MVVMRxSwiftUITests/Pods-MVVMRxSwift-MVVMRxSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4BD808A57830EE8D7DCB69CA /* Pods-MVVMRxSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRxSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-MVVMRxSwiftTests/Pods-MVVMRxSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		6A9535F517B8C9ECE31C2CA0 /* Pods-MVVMRxSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMRxSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-MVVMRxSwiftTests/Pods-MVVMRxSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,7 +79,7 @@
 		C78566592887423600B95C3B /* MVVMRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785665C2887423600B95C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C785665E2887423600B95C3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C78566602887423600B95C3B /* СryptocurrenciesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesController.swift"; sourceTree = "<group>"; };
+		C78566602887423600B95C3B /* СryptocurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СryptocurrenciesViewController.swift"; sourceTree = "<group>"; };
 		C78566652887423700B95C3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C78566682887423700B95C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C785666A2887423700B95C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,6 +146,72 @@
 				4BD808A57830EE8D7DCB69CA /* Pods-MVVMRxSwiftTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		34A610F128884492002035EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				34A610F22888449C002035EE /* Protocol */,
+				34A610F528884CDD002035EE /* СryptocurrenciesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		34A610F22888449C002035EE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				34A610F3288844A8002035EE /* IСryptocurrenciesViewModel.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		34A610F9288874A9002035EE /* 2_СryptoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				34A610FD2888754E002035EE /* Controller */,
+				34A610FC28887543002035EE /* Assemply */,
+				34A610FA288874C2002035EE /* ViewModel */,
+				34A6110428887F2C002035EE /* DetailView.swift */,
+			);
+			path = "2_СryptoDetail";
+			sourceTree = "<group>";
+		};
+		34A610FA288874C2002035EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				34A610FF28887576002035EE /* Protocol */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		34A610FC28887543002035EE /* Assemply */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assemply;
+			sourceTree = "<group>";
+		};
+		34A610FD2888754E002035EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				34A610FE28887559002035EE /* Protocol */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		34A610FE28887559002035EE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		34A610FF28887576002035EE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				34A6110028887595002035EE /* CryptoDetailViewController.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C78566502887423500B95C3B = {
@@ -201,6 +281,7 @@
 		C785668D288745D400B95C3B /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				34A610F9288874A9002035EE /* 2_СryptoDetail */,
 				C785669B2887486300B95C3B /* 1_Сryptocurrencies */,
 				C78566942887471F00B95C3B /* Base */,
 				C785668E288745E600B95C3B /* GlobalAssembly */,
@@ -236,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				C78566982887482100B95C3B /* Protocol */,
-				C78566602887423600B95C3B /* СryptocurrenciesController.swift */,
+				C78566602887423600B95C3B /* СryptocurrenciesViewController.swift */,
 			);
 			path = "СryptocurrenciesController";
 			sourceTree = "<group>";
@@ -253,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				C785669C2887488200B95C3B /* Views */,
+				34A610F128884492002035EE /* ViewModel */,
 				C78566972887481000B95C3B /* СryptocurrenciesController */,
 			);
 			path = "1_Сryptocurrencies";
@@ -286,8 +368,8 @@
 		C78566A328874A5500B95C3B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C78566BB2887677000B95C3B /* Protocols */,
 				C78566A428874A5C00B95C3B /* NetworkLayer */,
+				C78566BB2887677000B95C3B /* Protocols */,
 				C78566B92887674900B95C3B /* CurrenciesService.swift */,
 			);
 			path = Services;
@@ -358,6 +440,9 @@
 			isa = PBXGroup;
 			children = (
 				C78566C0288767B700B95C3B /* URLSession+URLSessionProtocol .swift */,
+				34A610EF28883EB5002035EE /* UIColor+Hex.swift */,
+				34A610ED28883E25002035EE /*  UIColor+Constants.swift */,
+				34A610F72888601F002035EE /* UIFont+Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -629,25 +714,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A610F028883EB5002035EE /* UIColor+Hex.swift in Sources */,
 				C78566B128874AF200B95C3B /* RequestError.swift in Sources */,
 				C78566B8288762B800B95C3B /* AssetsResponse.swift in Sources */,
 				C78566A2288748C700B95C3B /* СryptocurrenciesCellViewModel.swift in Sources */,
 				C78566C1288767B700B95C3B /* URLSession+URLSessionProtocol .swift in Sources */,
 				C785669A2887482B00B95C3B /* IСryptocurrenciesController.swift in Sources */,
 				C78566BD2887677800B95C3B /* ICurrenciesService.swift in Sources */,
+				34A6110528887F2C002035EE /* DetailView.swift in Sources */,
 				C78566AB28874AA900B95C3B /* HTTPClient.swift in Sources */,
 				C7856690288745F000B95C3B /* GlobalAssembly.swift in Sources */,
-				C78566612887423600B95C3B /* СryptocurrenciesController.swift in Sources */,
+				C78566612887423600B95C3B /* СryptocurrenciesViewController.swift in Sources */,
+				34A610F82888601F002035EE /* UIFont+Constants.swift in Sources */,
+				34A610EE28883E25002035EE /*  UIColor+Constants.swift in Sources */,
 				C78566A728874A7900B95C3B /* Endpoint.swift in Sources */,
 				C78566B52887513B00B95C3B /* СryptocurrenciesEndpoints.swift in Sources */,
 				C7856693288746DE00B95C3B /* DependencyAssembly.swift in Sources */,
 				C785665D2887423600B95C3B /* AppDelegate.swift in Sources */,
 				C78566BA2887674900B95C3B /* CurrenciesService.swift in Sources */,
+				34A610F628884CDD002035EE /* СryptocurrenciesViewModel.swift in Sources */,
 				C78566AD28874ABD00B95C3B /* URLSessionProtocol.swift in Sources */,
+				34A610F4288844A8002035EE /* IСryptocurrenciesViewModel.swift in Sources */,
 				C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */,
 				C78566962887472E00B95C3B /* BaseViewController.swift in Sources */,
 				C78566A0288748A500B95C3B /* СryptocurrenciesCell.swift in Sources */,
 				C78566A928874A9500B95C3B /* Method.swift in Sources */,
+				34A6110128887595002035EE /* CryptoDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +915,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -850,6 +943,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

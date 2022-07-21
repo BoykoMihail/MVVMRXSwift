@@ -6,5 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol ICurrenciesService {}
+protocol ICurrenciesService {
+    func fetchPhotos(page: Int) async throws -> Single<AssetsResponse>
+}
