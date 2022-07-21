@@ -35,7 +35,7 @@ extension HTTPClient {
         if let body = endpoint.body {
             request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         }
-
+        
         let (data, response) = try await urlSession.data(for: request, delegate: nil)
 
         guard let response = response as? HTTPURLResponse else {

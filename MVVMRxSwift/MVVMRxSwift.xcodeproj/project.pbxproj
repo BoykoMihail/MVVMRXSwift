@@ -22,6 +22,12 @@
 		C73C4BDE288924AF00C55990 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BDD288924AF00C55990 /* ImageCache.swift */; };
 		C73C4BE0288924D000C55990 /* ImageLoaderCustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BDF288924D000C55990 /* ImageLoaderCustomErrors.swift */; };
 		C73C4BE22889252E00C55990 /* AssetsImageEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BE12889252E00C55990 /* AssetsImageEndpoints.swift */; };
+		C73C4BE62889442600C55990 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BE52889442600C55990 /* LineChartView.swift */; };
+		C73C4BE82889444500C55990 /* ChartLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BE72889444500C55990 /* ChartLabel.swift */; };
+		C73C4BEA2889446600C55990 /* LinePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BE92889446600C55990 /* LinePath.swift */; };
+		C73C4BED2889448500C55990 /* LineChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BEC2889448500C55990 /* LineChartViewModel.swift */; };
+		C73C4BEF288944B400C55990 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BEE288944B400C55990 /* LineView.swift */; };
+		C73C4BF128894B9900C55990 /* TimeSeriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73C4BF028894B9900C55990 /* TimeSeriesResponse.swift */; };
 		C785665D2887423600B95C3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665C2887423600B95C3B /* AppDelegate.swift */; };
 		C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C785665E2887423600B95C3B /* SceneDelegate.swift */; };
 		C78566612887423600B95C3B /* СryptocurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78566602887423600B95C3B /* СryptocurrenciesViewController.swift */; };
@@ -88,6 +94,12 @@
 		C73C4BDD288924AF00C55990 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		C73C4BDF288924D000C55990 /* ImageLoaderCustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderCustomErrors.swift; sourceTree = "<group>"; };
 		C73C4BE12889252E00C55990 /* AssetsImageEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsImageEndpoints.swift; sourceTree = "<group>"; };
+		C73C4BE52889442600C55990 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		C73C4BE72889444500C55990 /* ChartLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLabel.swift; sourceTree = "<group>"; };
+		C73C4BE92889446600C55990 /* LinePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinePath.swift; sourceTree = "<group>"; };
+		C73C4BEC2889448500C55990 /* LineChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartViewModel.swift; sourceTree = "<group>"; };
+		C73C4BEE288944B400C55990 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		C73C4BF028894B9900C55990 /* TimeSeriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesResponse.swift; sourceTree = "<group>"; };
 		C78566592887423600B95C3B /* MVVMRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785665C2887423600B95C3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C785665E2887423600B95C3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,10 +192,8 @@
 		34A610F9288874A9002035EE /* 2_СryptoDetail */ = {
 			isa = PBXGroup;
 			children = (
-				34A610FD2888754E002035EE /* Controller */,
-				34A610FC28887543002035EE /* Assemply */,
+				C73C4BE328893C3C00C55990 /* Views */,
 				34A610FA288874C2002035EE /* ViewModel */,
-				34A6110428887F2C002035EE /* DetailView.swift */,
 			);
 			path = "2_СryptoDetail";
 			sourceTree = "<group>";
@@ -194,28 +204,6 @@
 				34A610FF28887576002035EE /* Protocol */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		34A610FC28887543002035EE /* Assemply */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assemply;
-			sourceTree = "<group>";
-		};
-		34A610FD2888754E002035EE /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				34A610FE28887559002035EE /* Protocol */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		34A610FE28887559002035EE /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		34A610FF28887576002035EE /* Protocol */ = {
@@ -241,6 +229,35 @@
 				C73C4BDB2889249700C55990 /* IImageCache.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C73C4BE328893C3C00C55990 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4BEB2889447C00C55990 /* ViewModel */,
+				C73C4BE428893F6600C55990 /* SubViews */,
+				34A6110428887F2C002035EE /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C73C4BE428893F6600C55990 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4BE52889442600C55990 /* LineChartView.swift */,
+				C73C4BE72889444500C55990 /* ChartLabel.swift */,
+				C73C4BE92889446600C55990 /* LinePath.swift */,
+				C73C4BEE288944B400C55990 /* LineView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		C73C4BEB2889447C00C55990 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C73C4BEC2889448500C55990 /* LineChartViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C78566502887423500B95C3B = {
@@ -448,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				C78566B7288762B800B95C3B /* AssetsResponse.swift */,
+				C73C4BF028894B9900C55990 /* TimeSeriesResponse.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -750,11 +768,14 @@
 			files = (
 				C73C4BDE288924AF00C55990 /* ImageCache.swift in Sources */,
 				34A610F028883EB5002035EE /* UIColor+Hex.swift in Sources */,
+				C73C4BE62889442600C55990 /* LineChartView.swift in Sources */,
 				C78566B128874AF200B95C3B /* RequestError.swift in Sources */,
 				C78566B8288762B800B95C3B /* AssetsResponse.swift in Sources */,
 				C78566A2288748C700B95C3B /* СryptocurrenciesCellViewModel.swift in Sources */,
+				C73C4BF128894B9900C55990 /* TimeSeriesResponse.swift in Sources */,
 				C78566C1288767B700B95C3B /* URLSession+URLSessionProtocol .swift in Sources */,
 				C785669A2887482B00B95C3B /* IСryptocurrenciesController.swift in Sources */,
+				C73C4BEF288944B400C55990 /* LineView.swift in Sources */,
 				C78566BD2887677800B95C3B /* ICurrenciesService.swift in Sources */,
 				34A6110528887F2C002035EE /* DetailView.swift in Sources */,
 				C78566AB28874AA900B95C3B /* HTTPClient.swift in Sources */,
@@ -766,14 +787,17 @@
 				C73C4BD82889246200C55990 /* ImageLoader.swift in Sources */,
 				C78566A728874A7900B95C3B /* Endpoint.swift in Sources */,
 				C73C4BE0288924D000C55990 /* ImageLoaderCustomErrors.swift in Sources */,
+				C73C4BE82889444500C55990 /* ChartLabel.swift in Sources */,
 				C78566B52887513B00B95C3B /* СryptocurrenciesEndpoints.swift in Sources */,
 				C7856693288746DE00B95C3B /* DependencyAssembly.swift in Sources */,
 				C785665D2887423600B95C3B /* AppDelegate.swift in Sources */,
 				C78566BA2887674900B95C3B /* CurrenciesService.swift in Sources */,
 				34A610F628884CDD002035EE /* СryptocurrenciesViewModel.swift in Sources */,
 				C78566AD28874ABD00B95C3B /* URLSessionProtocol.swift in Sources */,
+				C73C4BEA2889446600C55990 /* LinePath.swift in Sources */,
 				34A610F4288844A8002035EE /* IСryptocurrenciesViewModel.swift in Sources */,
 				C73C4BDC2889249700C55990 /* IImageCache.swift in Sources */,
+				C73C4BED2889448500C55990 /* LineChartViewModel.swift in Sources */,
 				C785665F2887423600B95C3B /* SceneDelegate.swift in Sources */,
 				C78566962887472E00B95C3B /* BaseViewController.swift in Sources */,
 				C78566A0288748A500B95C3B /* СryptocurrenciesCell.swift in Sources */,
@@ -955,7 +979,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -983,7 +1007,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

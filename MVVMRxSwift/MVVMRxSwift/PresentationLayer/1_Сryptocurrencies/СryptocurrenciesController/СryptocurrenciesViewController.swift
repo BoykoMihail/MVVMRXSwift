@@ -126,7 +126,13 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
             .bind { [weak self] indexPath, model in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 self?.viewModel?.didSelectCell(model: model)
-                let vc = UIHostingController(rootView: ContactPickerView())
+                let viewModel = LineChartViewModel(prices: [1,2,11, 5, 7,12,14,8,7,4],
+                                                   dates: ["22-06-06", "22-06-07", "22-06-08",
+                                                           "22-06-09", "22-06-10", "22-06-11",
+                                                           "22-06-12", "22-06-13", "22-06-14",
+                                                           "22-06-15"],
+                                                   dragGesture: true)
+                let vc = UIHostingController(rootView: ContactPickerView(lineChartViewModel: viewModel))
 
                 self?.navigationController?.pushViewController(vc, animated: true)
             }

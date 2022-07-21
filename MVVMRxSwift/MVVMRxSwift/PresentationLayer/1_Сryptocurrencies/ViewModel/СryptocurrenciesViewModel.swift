@@ -72,12 +72,9 @@ final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
         }
 
         Task {
-            let data = try await currenciesService.fetchPhotos(page: page)
+            let data = try await currenciesService.fetchAssets(page: page)
                 .data?.map { response -> СryptocurrenciesCellViewModel in
                     let priceUsd = response.priceUsd ?? 0
-//                    if priceUsd > 1 {
-//                        priceUsd = priceUsd.rounded()
-//                    }
                     return СryptocurrenciesCellViewModel(
                         name: response.name,
                         price: "\(priceUsd)",

@@ -21,22 +21,17 @@ final class CurrenciesService: HTTPClient, ICurrenciesService {
 
     // MARK: ICurrenciesService
     
-    func fetchPhotos(page: Int) async throws -> AssetsResponse {
+    func fetchAssets(page: Int) async throws -> AssetsResponse {
         try await sendRequest(
             endpoint: СryptocurrenciesEndpoints.assets(page: page),
             responseModel: AssetsResponse.self
         )
     }
-
-//    func fetchPhotos(page: Int) async throws -> Single<AssetsResponse> {
-//        let assetsResponse = try await sendRequest(
-//            endpoint: СryptocurrenciesEndpoints.assets(page: page),
-//            responseModel: AssetsResponse.self
-//        )
-//
-//        return Single<AssetsResponse>.create { [assetsResponse] single in
-//            single(.success(assetsResponse))
-//            return Disposables.create()
-//        }
-//    }
+    
+    func fetchTimeSeries(by name: String) async throws -> TimeSeriesResponse {
+        try await sendRequest(
+            endpoint: СryptocurrenciesEndpoints.timeSeries(name: name),
+            responseModel: TimeSeriesResponse.self
+        )
+    }
 }

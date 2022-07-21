@@ -9,5 +9,6 @@ import Foundation
 import RxSwift
 
 protocol ICurrenciesService {
-    func fetchPhotos(page: Int) async throws -> AssetsResponse
+    func fetchAssets(page: Int) async throws -> AssetsResponse
+    func fetchTimeSeries(by name: String) async throws -> TimeSeriesResponse
 }

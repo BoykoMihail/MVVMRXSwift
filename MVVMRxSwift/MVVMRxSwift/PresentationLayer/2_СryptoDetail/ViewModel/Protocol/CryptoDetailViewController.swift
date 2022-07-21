@@ -9,7 +9,14 @@ import UIKit
 
 final class CryptoDetailViewController: BaseViewController {
     // MARK: - UI
-
+    
+//    private lazy var myView: MyView = {
+//        myView = MyView()
+//        myView.translatesAutoresizingMaskIntoConstraints = false
+//        myView.isOpaque = false
+//        return myView
+//    }()
+    
     private lazy var cryptoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -65,6 +72,7 @@ final class CryptoDetailViewController: BaseViewController {
         view.addSubview(nameLabelView)
         view.addSubview(priceLabelView)
         view.addSubview(taglineLabelView)
+//        view.addSubview(myView)
     }
 
     // MARK: - Setting Constraints
@@ -76,10 +84,12 @@ final class CryptoDetailViewController: BaseViewController {
         let cryptoNameLabelViewConstraints = getcryptoNameLabelViewConstraints()
         let cryptoTokenLabelViewConstraints = getcryptoTaglineLabelViewConstraints()
         let cryptoPriceLabelViewConstraints = getcryptoPriceLabelViewConstraints()
+//        let chartsConstraints = getChartsConstraints()
         let layoutConstraint = cryptoImageViewConstraints
         + cryptoNameLabelViewConstraints
         + cryptoTokenLabelViewConstraints
         + cryptoPriceLabelViewConstraints
+//        + chartsConstraints
         NSLayoutConstraint.activate(layoutConstraint)
     }
 
@@ -91,6 +101,15 @@ final class CryptoDetailViewController: BaseViewController {
 
 private extension CryptoDetailViewController {
     // MARK: Private
+    
+//    private func getChartsConstraints() -> [NSLayoutConstraint] {
+//        [
+//            myView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+//            myView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+//            myView.topAnchor.constraint(equalTo: cryptoImageView.bottomAnchor, constant: 8),
+//            myView.heightAnchor.constraint(equalToConstant: 128)
+//        ]
+//    }
 
     private func getccryptoImageViewConstraints() -> [NSLayoutConstraint] {
         let guide = self.view.safeAreaLayoutGuide

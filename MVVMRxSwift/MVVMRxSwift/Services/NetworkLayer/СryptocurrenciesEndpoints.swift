@@ -13,6 +13,7 @@ private struct Const {
 
 enum СryptocurrenciesEndpoints {
     case assets(page: Int)
+    case timeSeries(name: String)
 }
 
 extension СryptocurrenciesEndpoints: Endpoint {
@@ -20,6 +21,8 @@ extension СryptocurrenciesEndpoints: Endpoint {
         switch self {
         case .assets:
             return "assets"
+        case let .timeSeries(name):
+            return "assets/\(name)/metrics/price/time-series"
         }
     }
 
@@ -31,26 +34,32 @@ extension СryptocurrenciesEndpoints: Endpoint {
                 "page": "\(page)",
                 "limit": "\(Const.defaultLimit)"
             ]
+        case .timeSeries:
+            return  [
+                "after": "2022-01-01",
+                "interval": "1d"
+//                "timestamp-format": "rfc3339"
+            ]
         }
     }
 
     var header: [String: String]? {
         switch self {
-        case .assets:
+        case .assets, .timeSeries:
             return nil
         }
     }
 
     var body: [String: String]? {
         switch self {
-        case .assets:
+        case .assets, .timeSeries:
             return nil
         }
     }
 
     var method: Method {
         switch self {
-        case .assets:
+        case .assets, .timeSeries:
             return .get
         }
     }
