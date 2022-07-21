@@ -10,19 +10,34 @@ import Foundation
 struct CurrencieData: Codable {
     let id: String?
     let symbol: String?
-    let metrics: Metrics?
+    let priceUsd: Double?
+    let name: String?
 
     enum CodingKeys: String, CodingKey {
         case id
         case symbol
-        case metrics
+        case priceUsd = "metrics"
+        case name
+    }
+    
+    enum MarketDataCodingKeys: String, CodingKey {
+        case marketData = "market_data"
+    }
+    
+    enum PriceCodingKeys: String, CodingKey {
+        case priceUsd = "price_usd"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)
         symbol = try values.decodeIfPresent(String.self, forKey: .symbol)
-        metrics = try values.decodeIfPresent(Metrics.self, forKey: .metrics)
+        
+        let metrics = try values.nestedContainer(keyedBy: MarketDataCodingKeys.self, forKey: .priceUsd)
+        let priceUsdCont = try metrics.nestedContainer(keyedBy: PriceCodingKeys.self, forKey: .marketData)
+        
+        priceUsd = try priceUsdCont.decodeIfPresent(Double.self, forKey: .priceUsd)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
     }
 }
 
@@ -32,31 +47,5 @@ struct AssetsResponse: Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         data = try values.decodeIfPresent([CurrencieData].self, forKey: .data)
-    }
-}
-
-struct Metrics: Codable {
-    let marketData: MarketData?
-
-    enum CodingKeys: String, CodingKey {
-        case marketData = "market_data"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        marketData = try values.decodeIfPresent(MarketData.self, forKey: .marketData)
-    }
-}
-
-struct MarketData: Codable {
-    let priceUsd: Double?
-
-    enum CodingKeys: String, CodingKey {
-        case priceUsd = "price_usd"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        priceUsd = try values.decodeIfPresent(Double.self, forKey: .priceUsd)
     }
 }
