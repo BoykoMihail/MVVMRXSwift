@@ -27,7 +27,7 @@ extension СryptocurrenciesEndpoints: Endpoint {
         switch self {
         case let .assets(page):
             return [
-                "fields": "id,slug,symbol,metrics/market_data/price_usd",
+                "fields": "id,name,symbol,metrics/market_data/price_usd",
                 "page": "\(page)",
                 "limit": "\(Const.defaultLimit)"
             ]
