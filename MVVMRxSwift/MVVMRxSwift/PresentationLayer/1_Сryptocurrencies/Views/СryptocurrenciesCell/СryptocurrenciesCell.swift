@@ -29,7 +29,7 @@ final class СryptocurrenciesCell: UITableViewCell {
     private let cryptoPriceLabelView: UILabel = {
         let priceLabelView = UILabel()
         priceLabelView.textAlignment = .left
-        priceLabelView.font = .customBigSemi
+        priceLabelView.font = .customTiny
         priceLabelView.textColor = .lightDark
         priceLabelView.translatesAutoresizingMaskIntoConstraints = false
         return priceLabelView
@@ -70,10 +70,17 @@ final class СryptocurrenciesCell: UITableViewCell {
     // MARK: Configure
 
     func configure(with viewModel: СryptocurrenciesCellViewModel) {
-        cryptoImageView.image = viewModel.image
-        cryptoNameLabelView.text = viewModel.name
-        cryptoPriceLabelView.text = viewModel.price
-        cryptoTokenLabelView.text = viewModel.token
+        Task {
+            cryptoNameLabelView.text = viewModel.name
+            cryptoPriceLabelView.text = viewModel.price
+            cryptoTokenLabelView.text = viewModel.token
+            cryptoImageView.image = UIImage()
+            do {
+                cryptoImageView.image = try await viewModel.image
+            } catch {
+                debugPrint("BBoyko")
+            }
+        }
     }
 }
 
@@ -105,6 +112,7 @@ extension СryptocurrenciesCell {
             cryptoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             cryptoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             cryptoImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            cryptoImageView.heightAnchor.constraint(equalToConstant: 54),
             cryptoImageView.widthAnchor.constraint(equalTo: cryptoImageView.heightAnchor)
         ]
     }
@@ -151,8 +159,8 @@ extension СryptocurrenciesCell {
                 .trailingAnchor
                 .constraint(equalTo: contentView.trailingAnchor, constant: -16),
             cryptoPriceLabelView
-                .centerYAnchor
-                .constraint(equalTo: contentView.centerYAnchor),
+                .bottomAnchor
+                .constraint(equalTo: cryptoTokenLabelView.bottomAnchor),
             cryptoPriceLabelView
                 .heightAnchor
                 .constraint(equalToConstant: 16)

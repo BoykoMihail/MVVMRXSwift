@@ -10,18 +10,20 @@ import UIKit
 struct СryptocurrenciesCellViewModel {
     // MARK: Properties
 
-    let image: UIImage?
     let name: String?
     let price: String?
     let token: String?
 
+    var image: UIImage? {
+        get async throws {
+            try await ImageLoader(cache: ImageCache()).image(from: token ?? "btc")
+        }
+    }
     // MARK: Init
 
-    init(image: UIImage?,
-         name: String?,
+    init(name: String?,
          price: String?,
          token: String?) {
-        self.image = image
         self.name = name
         self.price = price
         self.token = token

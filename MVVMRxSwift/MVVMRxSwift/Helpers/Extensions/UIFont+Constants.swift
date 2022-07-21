@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIFont {
+    static let customTiny = UIFont.systemFont(ofSize: 12, weight: .thin)
     static let customSmall = UIFont.systemFont(ofSize: 14, weight: .medium)
     static let customMedium = UIFont.systemFont(ofSize: 16, weight: .medium)
     static let customBigSemi = UIFont.systemFont(ofSize: 18, weight: .semibold)

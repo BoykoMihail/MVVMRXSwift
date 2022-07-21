@@ -71,10 +71,21 @@ final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
             isLoadingSpinnerAvaliable.onNext(false)
         }
 
-//        dummyService.fetchDatas(page: page) { [weak self] dummyResponse in
         Task {
-            let models = getRepo(page: page)
-            handleDummyData(data: models)
+            let data = try await currenciesService.fetchPhotos(page: page)
+                .data?.map { response -> СryptocurrenciesCellViewModel in
+                    let priceUsd = response.priceUsd ?? 0
+//                    if priceUsd > 1 {
+//                        priceUsd = priceUsd.rounded()
+//                    }
+                    return СryptocurrenciesCellViewModel(
+                        name: response.name,
+                        price: "\(priceUsd)",
+                        token: response.symbol
+                    )
+                }
+            guard let data = data else { return }
+            handleDummyData(data: data)
             isLoadingSpinnerAvaliable.onNext(false)
             isPaginationRequestStillResume = false
             isRefreshRequstStillResume = false
@@ -98,31 +109,5 @@ final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
         cryptocurrenciesCellViewModels.accept([])
         fetchDummyData(page: pageCounter,
                        isRefreshControl: true)
-    }
-
-    func getRepo(page: Int) -> [СryptocurrenciesCellViewModel] {
-        debugPrint("BBoyko page = ", page)
-        return [
-            СryptocurrenciesCellViewModel(image: UIImage(systemName: "arrow.clockwise.circle.fill"),
-                                          name: "Efiruum",
-                                          price: "12000",
-                                          token: "EFI"),
-            СryptocurrenciesCellViewModel(image: UIImage(systemName: "arrow.clockwise.circle.fill"),
-                                          name: "Efiruum",
-                                          price: "12000",
-                                          token: "EFI"),
-            СryptocurrenciesCellViewModel(image: UIImage(systemName: "arrow.clockwise.circle.fill"),
-                                          name: "Efiruum",
-                                          price: "12000",
-                                          token: "EFI"),
-            СryptocurrenciesCellViewModel(image: UIImage(systemName: "arrow.clockwise.circle.fill"),
-                                          name: "Efiruum",
-                                          price: "12000",
-                                          token: "EFI"),
-            СryptocurrenciesCellViewModel(image: UIImage(systemName: "arrow.clockwise.circle.fill"),
-                                          name: "Efiruum",
-                                          price: "12000",
-                                          token: "EFI")
-        ]
     }
 }
