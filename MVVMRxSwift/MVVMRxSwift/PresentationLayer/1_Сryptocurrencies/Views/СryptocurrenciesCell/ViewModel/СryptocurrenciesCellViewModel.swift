@@ -6,19 +6,24 @@
 //
 
 import UIKit
-typealias GetImageblockParametr = (Task<UIImage, Never>) -> Void
-typealias GetImageblock = (@escaping GetImageblockParametr) -> Void
 
 struct СryptocurrenciesCellViewModel {
-    private let getImageblock: GetImageblock
+    // MARK: Properties
 
-    init(getImageblock: @escaping GetImageblock) {
-        self.getImageblock = getImageblock
-    }
+    let image: UIImage?
+    let name: String?
+    let price: String?
+    let token: String?
 
-    func getImageFromUrl(completion: @escaping GetImageblockParametr) {
-        getImageblock {
-            completion($0)
-        }
+    // MARK: Init
+
+    init(image: UIImage?,
+         name: String?,
+         price: String?,
+         token: String?) {
+        self.image = image
+        self.name = name
+        self.price = price
+        self.token = token
     }
 }
