@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol ICurrenciesService {
-    func fetchPhotos(page: Int) async throws -> Single<AssetsResponse>
+    func fetchPhotos(page: Int) async throws -> AssetsResponse
 }
