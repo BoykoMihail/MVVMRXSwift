@@ -127,7 +127,8 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 self?.viewModel?.didSelectCell(model: model)
                 let viewModel = LineChartViewModel(service: CurrenciesService(),
-                                                   name: model.name ?? "not",
+                                                   token: model.token,
+                                                   name: model.name,
                                                    dragGesture: true)
                 let vc = UIHostingController(rootView: ContactPickerView(lineChartViewModel: viewModel))
 

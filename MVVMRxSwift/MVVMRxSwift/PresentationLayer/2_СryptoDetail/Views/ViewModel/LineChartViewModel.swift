@@ -10,7 +10,7 @@ import SwiftUI
 @MainActor public class LineChartViewModel: ObservableObject {
     // MARK: - Private Property
     private let service: ICurrenciesService
-    private let name: String?
+    private let token: String?
 
     // MARK: - Property
     @Published private var timeSeriesResponse: TimeSeriesResponse?
@@ -25,6 +25,7 @@ import SwiftUI
     
     // MARK: - Interactions
     public var dragGesture = false
+    public let name: String?
     
     public var prices: [Double]? {
         timeSeriesResponse?.timeSeries?.compactMap { Double($0.price) }
@@ -34,8 +35,11 @@ import SwiftUI
         timeSeriesResponse?.timeSeries?.compactMap { $0.date }
     }
     
+    var image = UIImage()
+    
     public init(
         service: ICurrenciesService,
+        token: String?,
         name: String?,
         labelColor: Color = .blue,
         indicatorPointColor: Color = .blue,
@@ -48,6 +52,7 @@ import SwiftUI
     ) {
         self.service = service
         self.name = name
+        self.token = token
         self.labelColor = labelColor
         self.indicatorPointColor = indicatorPointColor
         self.showingIndicatorLineColor = showingIndicatorLineColor
@@ -58,10 +63,12 @@ import SwiftUI
         self.dragGesture = dragGesture
         
         Task {
-
+            image = try await ImageLoader(cache: ImageCache()).image(from: token ?? "btc") ?? image
+        }
+        
+        Task {
             if let name = name {
                 timeSeriesResponse = try await service.fetchTimeSeries(by: name)
-                debugPrint("BBoyko data = ", timeSeriesResponse?.timeSeries?.count ?? "not")
             }
         }
     }
