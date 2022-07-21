@@ -8,6 +8,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    // MARK: UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubViews()
@@ -26,10 +28,10 @@ class BaseViewController: UIViewController {
     internal func setupConstraints() {}
 
     // MARK: - Setting Accessibilities
-    
+
     internal func setupAccessibility() {}
-    
+
     // MARK: - Setting Bindings
-    
+
     internal func setupBind() {}
 }

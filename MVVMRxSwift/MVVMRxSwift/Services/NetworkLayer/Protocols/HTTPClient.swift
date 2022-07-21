@@ -9,7 +9,7 @@ import Foundation
 
 protocol HTTPClient {
     var urlSession: URLSessionProtocol { get }
-    
+
     func sendRequest<T: Decodable>(endpoint: Endpoint, responseModel: T.Type) async throws -> T
 }
 
@@ -37,7 +37,7 @@ extension HTTPClient {
         }
 
         let (data, response) = try await urlSession.data(for: request, delegate: nil)
- 
+
         guard let response = response as? HTTPURLResponse else {
             throw RequestError.noResponseError
         }
