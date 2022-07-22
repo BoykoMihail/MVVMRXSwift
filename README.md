@@ -12,5 +12,6 @@ Examples:
 ![Main Screen](Samples/MainScreen.png | width=200)
 
 
+Detail Screen
 
-![Detail Screen](Samples/DetailScreen.png | width=200)
+<img src="Samples/DetailScreen.png" width="200">
