@@ -161,13 +161,7 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
                                  for: indexPath) as? СryptocurrenciesCell else {
             return UITableViewCell()
         }
-        Task {
-            do {
-                try await cell.configure(with: element)
-            } catch {
-                self.handle(error: error)
-            }
-        }
+        cell.configure(with: element)
         
         return cell
     }

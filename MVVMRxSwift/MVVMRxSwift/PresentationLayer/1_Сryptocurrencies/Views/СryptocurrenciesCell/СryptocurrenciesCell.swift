@@ -43,6 +43,10 @@ final class СryptocurrenciesCell: UITableViewCell {
         cryptoTokenLabelView.translatesAutoresizingMaskIntoConstraints = false
         return cryptoTokenLabelView
     }()
+    
+    // MARK: Private Property
+    
+    private var task: Task<Void, Error>?
 
     // MARK: Initialization
 
@@ -64,17 +68,20 @@ final class СryptocurrenciesCell: UITableViewCell {
         cryptoNameLabelView.text = nil
         cryptoPriceLabelView.text = nil
         cryptoTokenLabelView.text = nil
+        task?.cancel()
         super.prepareForReuse()
     }
 
     // MARK: Configure
 
-    func configure(with viewModel: СryptocurrenciesCellViewModel) async throws {
+    func configure(with viewModel: СryptocurrenciesCellViewModel) {
         cryptoNameLabelView.text = viewModel.name
         cryptoPriceLabelView.text = viewModel.price
         cryptoTokenLabelView.text = viewModel.token
         cryptoImageView.image = UIImage()
-        cryptoImageView.image = try await viewModel.image
+        task = Task {
+            cryptoImageView.image = try await viewModel.image
+        }
     }
 }
 
