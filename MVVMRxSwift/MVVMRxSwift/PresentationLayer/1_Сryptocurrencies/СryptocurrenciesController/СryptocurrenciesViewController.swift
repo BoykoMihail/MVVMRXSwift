@@ -40,18 +40,17 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
     }()
 
     private lazy var viewSpinner: UIView = {
-            let view = UIView(frame: CGRect(
-                                x: 0,
-                                y: 0,
-                                width: view.frame.size.width,
-                                height: 100)
-            )
-            let spinner = UIActivityIndicatorView()
-            spinner.center = view.center
-            view.addSubview(spinner)
-            spinner.startAnimating()
-            return view
-        }()
+        let frame = CGRect(x: 0,
+                           y: 0,
+                           width: view.frame.size.width,
+                           height: 100)
+        let view = UIView(frame: frame)
+        let spinner = UIActivityIndicatorView()
+        spinner.center = view.center
+        view.addSubview(spinner)
+        spinner.startAnimating()
+        return view
+    }()
 
     // MARK: UIViewController
 
@@ -96,15 +95,8 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
 
         viewModel?
             .cryptocurrenciesCellViewModels
-            .bind(to: tableView.rx.items) { tableView, index, element in
-                let indexPath = IndexPath(row: index, section: 0)
-                guard let cell = tableView
-                    .dequeueReusableCell(withIdentifier: .tableViewCellIdentifier,
-                                         for: indexPath) as? СryptocurrenciesCell else {
-                    return UITableViewCell()
-                }
-                cell.configure(with: element)
-                return cell
+            .bind(to: tableView.rx.items) { [weak self] _, index, element in
+                self?.cellForRow(index: index, element: element) ?? UITableViewCell()
             }
             .disposed(by: disposeBag)
 
@@ -126,13 +118,6 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
             .bind { [weak self] indexPath, model in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
                 self?.viewModel?.didSelectCell(model: model)
-                let viewModel = LineChartViewModel(service: CurrenciesService(),
-                                                   token: model.token,
-                                                   name: model.name,
-                                                   dragGesture: true)
-                let vc = UIHostingController(rootView: ContactPickerView(lineChartViewModel: viewModel))
-
-                self?.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
     }
@@ -167,5 +152,23 @@ final class СryptocurrenciesViewController: BaseViewController, IСryptocurrenc
                 self.refreshControl.endRefreshing()
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func cellForRow(index: Int, element: СryptocurrenciesCellViewModel) -> UITableViewCell {
+        let indexPath = IndexPath(row: index, section: 0)
+        guard let cell = tableView
+            .dequeueReusableCell(withIdentifier: .tableViewCellIdentifier,
+                                 for: indexPath) as? СryptocurrenciesCell else {
+            return UITableViewCell()
+        }
+        Task {
+            do {
+                try await cell.configure(with: element)
+            } catch {
+                self.handle(error: error)
+            }
+        }
+        
+        return cell
     }
 }

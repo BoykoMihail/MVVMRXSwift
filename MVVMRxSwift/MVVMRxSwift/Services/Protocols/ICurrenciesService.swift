@@ -11,4 +11,5 @@ import RxSwift
 public protocol ICurrenciesService {
     func fetchAssets(page: Int) async throws -> AssetsResponse
     func fetchTimeSeries(by name: String) async throws -> TimeSeriesResponse
+    func fetchProfile(by name: String) async throws -> ProfileResponse
 }

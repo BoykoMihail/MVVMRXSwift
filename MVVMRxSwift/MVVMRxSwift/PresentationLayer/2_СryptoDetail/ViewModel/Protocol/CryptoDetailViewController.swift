@@ -39,7 +39,7 @@ final class CryptoDetailViewController: BaseViewController {
         let priceLabelView = UILabel()
         priceLabelView.textAlignment = .right
         priceLabelView.font = .customBigSemi
-        priceLabelView.textColor = .lightDark
+        priceLabelView.textColor = .black
         priceLabelView.translatesAutoresizingMaskIntoConstraints = false
         priceLabelView.text = "12345"
 
@@ -50,7 +50,7 @@ final class CryptoDetailViewController: BaseViewController {
         let taglineLabelView = UILabel()
         taglineLabelView.textAlignment = .center
         taglineLabelView.font = .customSmall
-        taglineLabelView.textColor = .lightDark
+        taglineLabelView.textColor = .black
         taglineLabelView.translatesAutoresizingMaskIntoConstraints = false
         taglineLabelView.text = "Comon! By me!"
 

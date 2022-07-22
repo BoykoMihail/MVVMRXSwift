@@ -16,8 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-
-        window?.rootViewController = GlobalAssembly(dependencyAssembly: DependencyAssembly()).assembly()
+        let dependencyAssembly = DependencyAssembly()
+        let mainCoordinator = MainCoordinatorAssembly(dependencyAssembly: dependencyAssembly).assembly()
+        window?.rootViewController = dependencyAssembly.navigationController
+        mainCoordinator.start()
         window?.makeKeyAndVisible()
     }
 }

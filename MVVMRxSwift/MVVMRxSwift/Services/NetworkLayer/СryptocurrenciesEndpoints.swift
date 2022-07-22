@@ -13,16 +13,30 @@ private struct Const {
 
 enum СryptocurrenciesEndpoints {
     case assets(page: Int)
-    case timeSeries(name: String)
+    case timeSeries(token: String)
+    case profile(token: String)
 }
 
 extension СryptocurrenciesEndpoints: Endpoint {
+    var baseURL: String {
+        switch self {
+        case .assets:
+            return "https://data.messari.io/api/v1/"
+        case .timeSeries:
+            return "https://data.messari.io/api/v1/"
+        case .profile:
+            return "https://data.messari.io/api/v2/"
+        }
+    }
+    
     var path: String {
         switch self {
         case .assets:
             return "assets"
-        case let .timeSeries(name):
-            return "assets/\(name)/metrics/price/time-series"
+        case let .timeSeries(token):
+            return "assets/\(token)/metrics/price/time-series"
+        case let .profile(token):
+            return "assets/\(token)/profile"
         }
     }
 
@@ -38,28 +52,31 @@ extension СryptocurrenciesEndpoints: Endpoint {
             return  [
                 "after": "2022-01-01",
                 "interval": "1d"
-//                "timestamp-format": "rfc3339"
+            ]
+        case .profile:
+            return  [
+                "fields": "id,name,profile/general/overview/tagline,profile/general/overview/project_details,profile/general/overview/official_links"
             ]
         }
     }
 
     var header: [String: String]? {
         switch self {
-        case .assets, .timeSeries:
+        case .assets, .timeSeries, .profile:
             return nil
         }
     }
 
     var body: [String: String]? {
         switch self {
-        case .assets, .timeSeries:
+        case .assets, .timeSeries, .profile:
             return nil
         }
     }
 
     var method: Method {
         switch self {
-        case .assets, .timeSeries:
+        case .assets, .timeSeries, .profile:
             return .get
         }
     }

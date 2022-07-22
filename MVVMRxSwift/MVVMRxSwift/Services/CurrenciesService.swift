@@ -13,7 +13,7 @@ final class CurrenciesService: HTTPClient, ICurrenciesService {
 
     let urlSession: URLSessionProtocol
 
-    // MARK: Init
+    // MARK: Initialization
 
     init(urlSession: URLSessionProtocol = URLSession.shared) {
         self.urlSession = urlSession
@@ -28,10 +28,17 @@ final class CurrenciesService: HTTPClient, ICurrenciesService {
         )
     }
     
-    func fetchTimeSeries(by name: String) async throws -> TimeSeriesResponse {
+    func fetchTimeSeries(by token: String) async throws -> TimeSeriesResponse {
         try await sendRequest(
-            endpoint: СryptocurrenciesEndpoints.timeSeries(name: name),
+            endpoint: СryptocurrenciesEndpoints.timeSeries(token: token),
             responseModel: TimeSeriesResponse.self
+        )
+    }
+    
+    func fetchProfile(by token: String) async throws -> ProfileResponse {
+        try await sendRequest(
+            endpoint: СryptocurrenciesEndpoints.profile(token: token),
+            responseModel: ProfileResponse.self
         )
     }
 }

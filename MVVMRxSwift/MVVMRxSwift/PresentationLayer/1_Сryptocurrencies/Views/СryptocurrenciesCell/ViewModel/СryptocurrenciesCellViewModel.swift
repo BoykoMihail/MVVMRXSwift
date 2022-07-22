@@ -8,24 +8,32 @@
 import UIKit
 
 struct СryptocurrenciesCellViewModel {
+    // MARK: Dependencies
+    private let imageLoader: IImageLoader
+    
     // MARK: Properties
 
     let name: String?
-    let price: String?
+    let price: String
     let token: String?
 
     var image: UIImage? {
         get async throws {
-            try await ImageLoader(cache: ImageCache()).image(from: token ?? "btc")
+            guard let token = token else {
+                return nil
+            }
+            return try await imageLoader.image(from: token)
         }
     }
-    // MARK: Init
+    // MARK: Initialization
 
-    init(name: String?,
+    init(imageLoader: IImageLoader,
+         name: String?,
          price: String?,
          token: String?) {
+        self.imageLoader = imageLoader
         self.name = name
-        self.price = price
+        self.price = price?.roundIfDouble(to: 2) ?? ""
         self.token = token
     }
 }

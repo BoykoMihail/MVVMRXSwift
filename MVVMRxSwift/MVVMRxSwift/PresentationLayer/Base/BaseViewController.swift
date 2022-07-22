@@ -7,6 +7,11 @@
 
 import UIKit
 
+private extension String {
+    static let alertTitle = "Something went wrong"
+    static let alertMessage = "Please try again later"
+}
+
 class BaseViewController: UIViewController {
     // MARK: UIViewController
 
@@ -34,4 +39,13 @@ class BaseViewController: UIViewController {
     // MARK: - Setting Bindings
 
     internal func setupBind() {}
+}
+
+extension BaseViewController {
+    // MARK: - Error Handling
+    func handle(error: Error) {
+        let alert = UIAlertController(title: .alertTitle, message: .alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

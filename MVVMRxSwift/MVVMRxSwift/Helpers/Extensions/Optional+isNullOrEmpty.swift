@@ -1,5 +1,5 @@
 //
-//  Array+isNullOrEmpty.swift
+//  Optional+isNullOrEmpty.swift
 //  MVVMRxSwift
 //
 //  Created by Михаил Бойко on 21.07.2022.

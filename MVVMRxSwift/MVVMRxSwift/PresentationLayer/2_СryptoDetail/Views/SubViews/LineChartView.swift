@@ -16,10 +16,8 @@ public struct LineChartView: View {
     public var body: some View {
         if lineChartViewModel.prices.isNullOrEmpty {} else {
             VStack {
-                if lineChartViewModel.dragGesture {
-                    ChartLabel(lineChartViewModel: lineChartViewModel, indexPosition: $indexPosition)
-                        .opacity(showingIndicators ? 1: 0)
-                }
+                ChartLabel(lineChartViewModel: lineChartViewModel, indexPosition: $indexPosition)
+                    .opacity(showingIndicators ? 1: 0)
                 
                 LineView(
                     lineChartViewModel: lineChartViewModel,
@@ -30,22 +28,3 @@ public struct LineChartView: View {
         }
     }
 }
-
-//public extension LineChartView {
-//    class LineChartViewModel: ObservableObject {
-//        @Published private(set) var timeSeriesResponse: TimeSeriesResponse?
-//        
-//        private let service: ICurrenciesService
-//        
-//        init(service: ICurrenciesService) {
-//            self.service = service
-//        }
-//        
-//        func loadCountries(name: String) {
-//            Task {
-//                timeSeriesResponse = try await service.fetchTimeSeries(by: name)
-//            }
-//            
-//        }
-//    }
-//}

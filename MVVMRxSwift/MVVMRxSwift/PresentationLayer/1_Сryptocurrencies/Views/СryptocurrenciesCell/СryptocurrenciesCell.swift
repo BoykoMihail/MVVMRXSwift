@@ -8,8 +8,8 @@
 import UIKit
 
 final class СryptocurrenciesCell: UITableViewCell {
-    // MARK: Init
-
+    // MARK: UI
+    
     private let cryptoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -29,8 +29,8 @@ final class СryptocurrenciesCell: UITableViewCell {
     private let cryptoPriceLabelView: UILabel = {
         let priceLabelView = UILabel()
         priceLabelView.textAlignment = .left
-        priceLabelView.font = .customTiny
-        priceLabelView.textColor = .lightDark
+        priceLabelView.font = .customMedium
+        priceLabelView.textColor = .black
         priceLabelView.translatesAutoresizingMaskIntoConstraints = false
         return priceLabelView
     }()
@@ -44,7 +44,7 @@ final class СryptocurrenciesCell: UITableViewCell {
         return cryptoTokenLabelView
     }()
 
-    // MARK: Init
+    // MARK: Initialization
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -69,18 +69,12 @@ final class СryptocurrenciesCell: UITableViewCell {
 
     // MARK: Configure
 
-    func configure(with viewModel: СryptocurrenciesCellViewModel) {
-        Task {
-            cryptoNameLabelView.text = viewModel.name
-            cryptoPriceLabelView.text = viewModel.price
-            cryptoTokenLabelView.text = viewModel.token
-            cryptoImageView.image = UIImage()
-            do {
-                cryptoImageView.image = try await viewModel.image
-            } catch {
-                debugPrint("BBoyko")
-            }
-        }
+    func configure(with viewModel: СryptocurrenciesCellViewModel) async throws {
+        cryptoNameLabelView.text = viewModel.name
+        cryptoPriceLabelView.text = viewModel.price
+        cryptoTokenLabelView.text = viewModel.token
+        cryptoImageView.image = UIImage()
+        cryptoImageView.image = try await viewModel.image
     }
 }
 

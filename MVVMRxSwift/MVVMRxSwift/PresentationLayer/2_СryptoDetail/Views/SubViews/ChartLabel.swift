@@ -36,14 +36,8 @@ public struct ChartLabel: View {
 
             return finalDate
         }
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yy-MM-dd"
-//        let date = dateFormatter.date(from: stringDate)
-//
-//        dateFormatter.dateStyle = .long
-//        let finalDate = dateFormatter.string(from: date!)
         
-        return "finalDate"
+        return ""
     }
 }
 

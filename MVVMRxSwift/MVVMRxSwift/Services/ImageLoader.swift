@@ -8,14 +8,20 @@
 import UIKit
 
 final class ImageLoader: IImageLoader {
+    // MARK: Dependency
+
     private var cache: IImageCache
     private let urlSession: URLSessionProtocol
+
+    // MARK: Initialization
 
     init(cache: IImageCache,
          urlSession: URLSessionProtocol = URLSession.shared) {
         self.cache = cache
         self.urlSession = urlSession
     }
+
+    // MARK: IImageLoader
 
     func image(from token: String) async throws -> UIImage? {
         if let cachedImage = cache[token] {
@@ -31,29 +37,13 @@ final class ImageLoader: IImageLoader {
             throw error
         }
     }
+    
+    // MARK: Private
 
     private func downloadImage(from token: String) async throws -> UIImage {
         let endpoint = AssetsImageEndpoints.assetsImage(token: token)
         
-        guard var components = URLComponents(string: endpoint.baseURL + endpoint.path) else {
-            throw RequestError.invalidURL
-        }
-
-        components.queryItems = endpoint.queryItems?.map({ (key: String, value: String) in
-            URLQueryItem(name: key, value: value)
-        })
-
-        guard let url = components.url else {
-            throw RequestError.invalidURL
-        }
-
-        var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        request.allHTTPHeaderFields = endpoint.header
-
-        if let body = endpoint.body {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        }
+        let request = try endpoint.buildRequest()
 
         let (data, response) = try await urlSession.data(for: request, delegate: nil)
         

@@ -9,14 +9,22 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+protocol MoveToDetailCoordinator {
+    func moveToDetail(viewModel: СryptocurrenciesCellViewModel)
+}
+
 final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
     // MARK: Dependency
     private let currenciesService: ICurrenciesService
-
-    // MARK: IСryptocurrenciesViewModel
+    private let imageLoader: IImageLoader
+    private let moveToDetailCoordinator: MoveToDetailCoordinator
+    
+    // MARK: IСryptocurrenciesViewModel - Models
 
     var cryptocurrenciesCellViewModels = BehaviorRelay<[СryptocurrenciesCellViewModel]>(value: [])
 
+    // MARK: IСryptocurrenciesViewModel - Pagination
+    
     let fetchMoreDatas = PublishSubject<Void>()
     let refreshControlAction = PublishSubject<Void>()
     let refreshControlCompelted = PublishSubject<Void>()
@@ -29,19 +37,25 @@ final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
     private var isPaginationRequestStillResume = false
     private var isRefreshRequstStillResume = false
 
+    // MARK: Private Constant
+
     private let disposeBag = DisposeBag()
 
-    // MARK: Init
+    // MARK: Initialization
 
-    init(currenciesService: ICurrenciesService) {
+    init(currenciesService: ICurrenciesService,
+         imageLoader: IImageLoader,
+         moveToDetailCoordinator: MoveToDetailCoordinator) {
         self.currenciesService = currenciesService
+        self.imageLoader = imageLoader
+        self.moveToDetailCoordinator = moveToDetailCoordinator
         bind()
     }
 
     // MARK: IСryptocurrenciesViewModel
 
     func didSelectCell(model: СryptocurrenciesCellViewModel) {
-        debugPrint("BBoyko didSelectCell")
+        moveToDetailCoordinator.moveToDetail(viewModel: model)
     }
 
     // MARK: Private
@@ -72,16 +86,12 @@ final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
         }
 
         Task {
-            let data = try await currenciesService.fetchAssets(page: page)
-                .data?.map { response -> СryptocurrenciesCellViewModel in
-                    let priceUsd = response.priceUsd ?? 0
-                    return СryptocurrenciesCellViewModel(
-                        name: response.name,
-                        price: "\(priceUsd)",
-                        token: response.symbol
-                    )
-                }
+            let data = try await currenciesService
+                .fetchAssets(page: page)
+                .data?.map(buildСryptocurrenciesCellViewModel)
+            
             guard let data = data else { return }
+            
             handleDummyData(data: data)
             isLoadingSpinnerAvaliable.onNext(false)
             isPaginationRequestStillResume = false
@@ -106,5 +116,14 @@ final class СryptocurrenciesViewModel: IСryptocurrenciesViewModel {
         cryptocurrenciesCellViewModels.accept([])
         fetchDummyData(page: pageCounter,
                        isRefreshControl: true)
+    }
+    
+    private func buildСryptocurrenciesCellViewModel(response: CurrencieData) -> СryptocurrenciesCellViewModel {
+        let priceUsd = response.priceUsd ?? 0
+
+        return СryptocurrenciesCellViewModel(imageLoader: imageLoader,
+                                             name: response.name,
+                                             price: "\(priceUsd)",
+                                             token: response.symbol)
     }
 }

@@ -32,8 +32,8 @@ public struct LineView: View {
         .rotationEffect(.degrees(180), anchor: .center)
         .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
         .contentShape(Rectangle())
-        .gesture(lineChartViewModel.dragGesture ?
-            LongPressGesture(minimumDuration: 0.2)
+        .gesture(
+            LongPressGesture(minimumDuration: 0.1)
                 .sequenced(before: DragGesture(minimumDistance: 0, coordinateSpace: .local))
                 .onChanged({ value in
                     switch value {
@@ -45,10 +45,9 @@ public struct LineView: View {
                         break
                     }
                 })
-                .onEnded({ value in
+                .onEnded { _ in
                     self.showingIndicators = false
-                })
-            : nil
+                }
         )
     }
     
