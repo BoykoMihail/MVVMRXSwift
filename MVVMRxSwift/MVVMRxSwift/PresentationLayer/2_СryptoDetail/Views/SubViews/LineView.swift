@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+public typealias ClosestValue = (CGFloat, CGFloat, Int)
+
 public struct LineView: View {
-    @StateObject  public var lineChartViewModel: LineChartViewModel
+    public var lineChartViewModel: LineChartViewModel
     
     @Binding var showingIndicators: Bool
     @Binding var indexPosition: Int
@@ -20,7 +22,7 @@ public struct LineView: View {
             if let prices = lineChartViewModel.prices {
                 GeometryReader { proxy in
                     LinePath(data: prices, width: proxy.size.width, height: proxy.size.height, pathPoints: $pathPoints)
-                        .stroke(colorLine(), lineWidth: 2)
+                        .stroke(lineChartViewModel.colorLine(), lineWidth: 2)
                 }
             }
             
@@ -52,47 +54,39 @@ public struct LineView: View {
     }
     
     public struct IndicatorPoint: View {
-        @StateObject public var lineChartViewModel: LineChartViewModel
+        public var lineChartViewModel: LineChartViewModel
         
         public var body: some View {
             Circle()
                 .frame(width: 10, height: 10)
-                .foregroundColor(lineChartViewModel.indicatorPointColor)
+                .foregroundColor(lineChartViewModel.colorLine())
         }
-    }
-    
-    public func colorLine() -> Color {
-        var color = lineChartViewModel.uptrendLineColor
-        
-        guard let prices = lineChartViewModel.prices else {
-            return color
-        }
-        
-        if showingIndicators {
-            color = lineChartViewModel.showingIndicatorLineColor
-        } else if prices.first! > prices.last! {
-            color = lineChartViewModel.downtrendLineColor
-        } else if prices.first! == prices.last! {
-            color = lineChartViewModel.flatTrendLineColor
-        }
-        
-        return color
     }
     
     public func dragGesture(_ longPressLocation: CGPoint) {
-        let (closestXPoint, closestYPoint, yPointIndex) = getClosestValueFrom(longPressLocation, inData: pathPoints)
+        guard let (closestXPoint, closestYPoint, yPointIndex) = getClosestValueFrom(longPressLocation,
+                                                                                    inData: pathPoints) else {
+            return
+        }
         self.indicatorPointPosition.x = closestXPoint
         self.indicatorPointPosition.y = closestYPoint
         self.showingIndicators = true
         self.indexPosition = yPointIndex
     }
     
-    public func getClosestValueFrom(_ value: CGPoint, inData: [CGPoint]) -> (CGFloat, CGFloat, Int) {
+    public func getClosestValueFrom(_ value: CGPoint, inData: [CGPoint]) -> ClosestValue? {
         let touchPoint: (CGFloat, CGFloat) = (value.x, value.y)
         let xPathPoints = inData.map { $0.x }
         let yPathPoints = inData.map { $0.y }
         
-        let closestXPoint = xPathPoints.enumerated().min( by: { abs($0.1 - touchPoint.0) < abs($1.1 - touchPoint.0) } )!
+        guard let closestXPoint = xPathPoints
+            .enumerated()
+            .min( by: {
+                abs($0.1 - touchPoint.0) < abs($1.1 - touchPoint.0)
+            }) else {
+            return nil
+        }
+        
         let closestYPointIndex = xPathPoints.firstIndex(of: closestXPoint.element)!
         let closestYPoint = yPathPoints[closestYPointIndex]
         

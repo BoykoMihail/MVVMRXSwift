@@ -20,14 +20,14 @@ public struct LinePath: Shape {
         let normalizedData = normalize(data)
         let widthBetweenDataPoints = Double(width) / Double(normalizedData.count - 1)  // Remove first point
         let initialPoint = normalizedData[0] * Double(height)
-        var x: Double = 0
+        var xAxis: Double = 0
         
-        path.move(to: CGPoint(x: x, y: initialPoint))
-        for y in normalizedData {
-            if normalizedData.firstIndex(of: y) != 0 {
-                x += widthBetweenDataPoints
-                let y = y * Double(height)
-                path.addLine(to: CGPoint(x: x, y: y))
+        path.move(to: CGPoint(x: xAxis, y: initialPoint))
+        for yAxis in normalizedData {
+            if normalizedData.firstIndex(of: yAxis) != 0 {
+                xAxis += widthBetweenDataPoints
+                let yAxis = yAxis * Double(height)
+                path.addLine(to: CGPoint(x: xAxis, y: yAxis))
             }
 
             pathPoints.append(path.currentPoint ?? CGPoint(x: 0, y: 0))

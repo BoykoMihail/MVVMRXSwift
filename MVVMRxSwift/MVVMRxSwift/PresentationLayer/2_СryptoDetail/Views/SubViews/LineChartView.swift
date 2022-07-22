@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct LineChartView: View {
-    @ObservedObject var lineChartViewModel: LineChartViewModel
+    var lineChartViewModel: LineChartViewModel
     
     @State var showingIndicators = false
     @State var indexPosition = Int()

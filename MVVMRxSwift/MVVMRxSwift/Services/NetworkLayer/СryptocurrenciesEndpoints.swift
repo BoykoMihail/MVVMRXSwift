@@ -55,7 +55,9 @@ extension СryptocurrenciesEndpoints: Endpoint {
             ]
         case .profile:
             return  [
+                // swiftlint:disable line_length
                 "fields": "id,name,profile/general/overview/tagline,profile/general/overview/project_details,profile/general/overview/official_links"
+                // swiftlint:enable line_length
             ]
         }
     }

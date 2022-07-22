@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct FooterView: View {
-    @ObservedObject var lineChartViewModel: LineChartViewModel
+    var lineChartViewModel: LineChartViewModel
     
     var body: some View {
         if let dict = lineChartViewModel.urlDictionary {

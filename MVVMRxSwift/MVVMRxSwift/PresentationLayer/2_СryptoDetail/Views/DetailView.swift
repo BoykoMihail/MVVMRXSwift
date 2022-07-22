@@ -8,9 +8,15 @@
 import Foundation
 import SwiftUI
 
+private extension String {
+    static let alertTitle = "Something went wrong"
+    static let alertMessage = "Please try again later"
+}
+
 struct DetailView: View {
-    @ObservedObject var lineChartViewModel: LineChartViewModel
-    
+    @StateObject var lineChartViewModel: LineChartViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
         if lineChartViewModel.isLoading {
             ActivityIndicator(style: .large)
@@ -21,64 +27,32 @@ struct DetailView: View {
                 LineChartView(lineChartViewModel: lineChartViewModel)
                     .frame(minHeight: 240, maxHeight: 360)
                     .padding(.trailing)
-                Spacer()
-                VStack(spacing: 8) {
-                    HStack(spacing: 2) {
-                        Text("Tagline")
-                            .font(.title2)
-                            .foregroundColor(Color(UIColor.darkGray.cgColor))
-                            .bold()
-                        Spacer()
-                    }
+                CustomSection(title: "Tagline") {
                     HStack(spacing: 2) {
                         Text(lineChartViewModel.tagline ?? "")
                             .font(Font.subheadline)
                             .foregroundColor(Color(UIColor.darkGray.cgColor))
                         Spacer()
                     }
+                    .padding([.leading, .trailing])
                 }
-                .padding([.leading, .trailing, .top])
-                if let data = lineChartViewModel.detail {
-                    VStack(spacing: 8) {
-                        HStack {
-                            Text("Description")
-                                .font(.title2)
-                                .foregroundColor(Color(UIColor.darkGray.cgColor))
-                                .bold()
-                            Spacer()
-                        }
-                        .padding([.top, .leading, .trailing])
-                        Text(data)
-                            .padding([.leading, .trailing])
-                    }
+                CustomSection(title: "Description") {
+                    Text(lineChartViewModel.detail)
+                        .padding([.leading, .trailing])
                 }
-                VStack(spacing: 8) {
-                    HStack {
-                        Text("Official Links")
-                            .font(.title2)
-                            .foregroundColor(Color(UIColor.darkGray.cgColor))
-                            .bold()
-                        Spacer()
-                    }
-                    .padding([.leading, .trailing, .top])
+                CustomSection(title: "Official Links") {
                     FooterView(lineChartViewModel: lineChartViewModel)
                 }
                 .padding(.bottom)
             }
+            .alert(isPresented: $lineChartViewModel.isError) {
+                Alert(title: Text(String.alertTitle),
+                      message: Text(String.alertMessage),
+                      dismissButton: .cancel(Text("Ok")) {
+                          self.presentationMode.wrappedValue.dismiss()
+                      })
+            }
             .navigationTitle(lineChartViewModel.name ?? "")
         }
-    }
-}
-
-struct ActivityIndicator: UIViewRepresentable {
-
-    let style: UIActivityIndicatorView.Style
-
-    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
-        UIActivityIndicatorView(style: style)
-    }
-
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
-        uiView.startAnimating()
     }
 }

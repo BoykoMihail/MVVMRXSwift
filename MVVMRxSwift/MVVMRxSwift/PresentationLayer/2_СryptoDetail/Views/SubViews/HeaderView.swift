@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct HeaderView: View {
-    @ObservedObject var lineChartViewModel: LineChartViewModel
+    var lineChartViewModel: LineChartViewModel
     
     var body: some View {
         HStack {
