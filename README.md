@@ -8,8 +8,6 @@ make install
 
 Examples:
 
-Main Screen
-
 <table>
   <tr>
     <td>Main Screen</td>
